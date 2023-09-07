@@ -1,4 +1,7 @@
-export default function RenderUser({ user }) {
+import { memo } from "react";
+
+export default memo(function RenderUser({ user }) {
+  console.log("render");
   const {
     id,
     name,
@@ -17,7 +20,7 @@ export default function RenderUser({ user }) {
   } = user;
 
   return (
-    <tr>
+    <tr id={id}>
       <td>{id}</td>
       <td>{name}</td>
       <td>{email}</td>
@@ -26,4 +29,4 @@ export default function RenderUser({ user }) {
       <td>{suite}</td>
     </tr>
   );
-};
+});
