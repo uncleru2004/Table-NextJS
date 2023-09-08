@@ -4,7 +4,7 @@ export async function fetcher(value) {
   if (!response.ok) throw new Error("fetch " + response.status);
   const result = await response.json();
   
-  console.log(result)
+  //console.log(result)
   return result;
 }
 

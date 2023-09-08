@@ -27,6 +27,9 @@ export default memo(function RenderUser({ user }) {
       <td>{city}</td>
       <td>{street}</td>
       <td>{suite}</td>
+      <td>
+        <button>❌</button>
+      </td>
     </tr>
   );
 });

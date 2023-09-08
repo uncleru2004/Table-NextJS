@@ -1,7 +1,6 @@
 import { memo } from "react";
 
 export default memo(function RenderInfo({ info }) {
-  console.log(info);
   if (info) {
     const {
       id,
