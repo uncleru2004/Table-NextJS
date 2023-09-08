@@ -28,7 +28,7 @@ export default memo(function RenderUser({ user }) {
       <td>{street}</td>
       <td>{suite}</td>
       <td>
-        <button>❌</button>
+        <button id="delUser">❌</button>
       </td>
     </tr>
   );

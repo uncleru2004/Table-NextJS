@@ -12,7 +12,7 @@ export default function UserInfoPopUp({info, openUser, openPosts, userPosts}) {
           openUser(false);
         }}
       >
-        X
+        ❌
       </button>
       <button
         onClick={() => {

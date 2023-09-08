@@ -5,6 +5,7 @@ import UserInfoPopUp from "./UserInfoPopUp";
 import UserPostsPopUp from "./UserPostsPopUp";
 
 export default memo(function InitTable() {
+ 
   console.log("InitTable render");
 
   const [users, setUsers] = useState(null),
@@ -22,7 +23,13 @@ export default memo(function InitTable() {
     }, []),
     userPosts = useCallback((items) => {
       setPosts(items);
-    }, []);
+    }, []),
+    deleteUser = useCallback(
+      (id) => setUsers((old) => old.filter((item) => item.id !== id)),
+      []
+    );
+
+    console.log(users)
 
   useEffect(() => {
     async function fetchUser() {
@@ -51,6 +58,7 @@ export default memo(function InitTable() {
         userInfo={userInfo}
         openUser={openUser}
         openPosts={openPosts}
+        deleteUser={deleteUser}
       />
     </>
   );

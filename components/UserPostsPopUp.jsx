@@ -13,7 +13,7 @@ export default function UserPostsPopUp({posts, openPosts}) {
           openPosts(false);
         }}
       >
-        X
+        ❌
       </button>
     </Dialog>
   );
