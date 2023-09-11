@@ -3,7 +3,13 @@ import { fetcher } from "./fetcher";
 import RenderUser from "./RenderUser";
 import { memo } from "react";
 
-export default memo(function Table({ users, userInfo, openUser, openPosts, deleteUser }) {
+export default memo(function Table({
+  users,
+  userInfo,
+  openUser,
+  openPosts,
+  deleteUser,
+}) {
   if (users) {
     return (
       <table className={css.table}>
@@ -24,7 +30,10 @@ export default memo(function Table({ users, userInfo, openUser, openPosts, delet
             console.log(event.target.id);
 
             if (event.target.id === "delUser") {
+              console.log(tr.id);
               deleteUser(tr.id);
+              openUser(false);
+              openPosts(false);
             } else {
               async function fetchInfo() {
                 userInfo(await fetcher(tr.id));

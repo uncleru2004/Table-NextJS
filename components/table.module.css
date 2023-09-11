@@ -15,6 +15,7 @@
 
 .table td {
   padding: 10px;
+  cursor: zoom-in;
 }
 
 .table tbody {

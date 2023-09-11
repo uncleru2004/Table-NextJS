@@ -1,7 +1,8 @@
 import { memo } from "react";
 
 export default memo(function RenderUser({ user }) {
-  console.log("render");
+  console.log("renderUser");
+  
   const {
     id,
     name,
