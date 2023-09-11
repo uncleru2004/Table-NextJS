@@ -1,6 +1,7 @@
 .table {
   width: 100%;
   font-size: 28px;
+  
 }
 
 .table thead {
@@ -16,10 +17,12 @@
 .table td {
   padding: 10px;
   cursor: zoom-in;
+  border-radius: 10px;
 }
 
 .table tbody {
   border: 1px solid white;
+  
 }
 
 .table tbody tr:nth-child(2n) {
