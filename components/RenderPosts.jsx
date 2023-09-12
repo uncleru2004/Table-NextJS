@@ -1,15 +1,14 @@
-import { memo } from "react";
-
-export default memo(function RenderPosts({ post }) {
+export default function RenderPosts({ post }) {
+  console.log("posts");
   if (post) {
     const { id, title, body } = post;
 
     return (
       <>
         <p>{id}</p>
-        <p>{title}</p>
-        <p>{body}</p>
+        <h3>{title}</h3>
+        <p>"{body}"</p>
       </>
     );
   }
-});
+}

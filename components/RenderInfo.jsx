@@ -22,11 +22,11 @@ export default memo(function RenderInfo({ info }) {
     return (
       <>
         <p>{id}</p>
-        <p>{name}</p>
-        <p>{email}</p>
-        <p>{city}</p>
-        <p>{street}</p>
-        <p>{suite}</p>
+        <h3>{name}</h3>
+        <a href={"URL" + website}>{website}</a>
+        <p>{cname}</p>
+        <p>{bs}</p>
+        <p>"{catchPhrase}"</p>
       </>
     );
   }

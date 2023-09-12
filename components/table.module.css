@@ -1,7 +1,6 @@
 .table {
   width: 100%;
   font-size: 28px;
-  
 }
 
 .table thead {
@@ -22,7 +21,6 @@
 
 .table tbody {
   border: 1px solid white;
-  
 }
 
 .table tbody tr:nth-child(2n) {
@@ -37,5 +35,5 @@
   width: 100%;
   height: 100%;
   background-color: inherit;
-  border: none;  
+  border: none;
 }

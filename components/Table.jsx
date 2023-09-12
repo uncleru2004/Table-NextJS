@@ -2,6 +2,7 @@ import css from "./table.module.css";
 import { fetcher } from "./fetcher";
 import RenderUser from "./RenderUser";
 import { memo } from "react";
+import { columns } from "./fetcher";
 
 export default memo(function Table({
   users,
@@ -15,12 +16,9 @@ export default memo(function Table({
       <table className={css.table}>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>Street</th>
-            <th>Suite</th>
+            {columns.map(({ title }) => (
+              <th key={title}>{title}</th>
+            ))}
             <th></th>
           </tr>
         </thead>

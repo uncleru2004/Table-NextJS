@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 
 export default memo(function Form({ transferValue }) {
   const [value, setValue] = useState("");
-  console.log(value);
+  //console.log(value);
   return (
     <>
       <input

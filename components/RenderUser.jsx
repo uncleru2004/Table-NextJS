@@ -1,33 +1,14 @@
 import { memo } from "react";
+import { columns } from "./fetcher";
 
 export default memo(function RenderUser({ user }) {
-  console.log("renderUser");
-  
-  const {
-    id,
-    name,
-    username,
-    email,
-    address: {
-      street,
-      suite,
-      city,
-      zipcode,
-      geo: { lat, lng },
-    },
-    phone,
-    website,
-    company: { name: cname, catchPhrase, bs },
-  } = user;
+  //console.log("renderUser");
 
   return (
-    <tr id={id}>
-      <td>{id}</td>
-      <td>{name}</td>
-      <td>{email}</td>
-      <td>{city}</td>
-      <td>{street}</td>
-      <td>{suite}</td>
+    <tr id={user.id}>
+      {columns.map(({ title, getVal }) => (
+        <td key={title}>{getVal(user)}</td>
+      ))}
       <td>
         <button id="delUser">❌</button>
       </td>

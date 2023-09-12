@@ -50,7 +50,7 @@ export default memo(function InitTable() {
       }
     }, []);
 
-  console.log(users);
+  //console.log(users);
 
   /*useEffect(() => {
     async function fetchItems() {
