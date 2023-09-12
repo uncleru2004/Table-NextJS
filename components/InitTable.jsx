@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useCallback } from "react";
+import { memo, useState, useEffect, useCallback, useMemo } from "react";
 import { fetcher } from "./fetcher";
 import Table from "./Table";
 import Form from "./Form";
@@ -14,21 +14,45 @@ export default memo(function InitTable() {
     [posts, setPosts] = useState([]),
     [openDialogUser, setOpenUser] = useState(false),
     [openDialogPosts, setOpenPosts] = useState(false),
-    userInfo = useCallback((items) => setInfo(items), []),
-    openUser = useCallback((item) => {
-      setOpenUser(item);
-    }, []),
-    openPosts = useCallback((item) => {
-      setOpenPosts(item);
-    }, []),
-    userPosts = useCallback((items) => {
-      setPosts(items);
-    }, []),
-    deleteUser = useCallback(
-      (id) => setUsers((old) => old.filter((item) => item.id != id)),
-      []
-    ),
-    transferValue = useCallback((value) => {
+    { userInfo, openUser, openPosts, userPosts, deleteUser, transferValue } =
+      useMemo(
+        () => ({
+          userInfo: (items) => setInfo(items),
+          openUser: (item) => setOpenUser(item),
+          openPosts: (item) => setOpenPosts(item),
+          userPosts: (items) => setPosts(items),
+          deleteUser: (id) =>
+            setUsers((old) => old.filter((item) => item.id != id)),
+          transferValue: (value) => {
+            if (value) {
+              async function fetchItems() {
+                setUsers(
+                  (await fetcher("")).filter(
+                    (item) =>
+                      item.name.includes(value) ||
+                      item.email.includes(value) ||
+                      item.address.city.includes(value) ||
+                      item.address.street.includes(value)
+                  )
+                );
+              }
+              fetchItems();
+            } else {
+              async function fetchItems() {
+                setUsers(await fetcher(""));
+              }
+              fetchItems();
+            }
+          },
+        }),
+        []
+      );
+  //userInfo = useCallback((items) => setInfo(items), []),
+  //openUser = useCallback((item) => {setOpenUser(item);}, []),
+  //openPosts = useCallback((item) => {setOpenPosts(item);}, []),
+  //userPosts = useCallback((items) => {setPosts(items);}, []),
+  //deleteUser = useCallback((id) => setUsers((old) => old.filter((item) => item.id != id)),[]),
+  /*transferValue = useCallback((value) => {
       if (value) {
         async function fetchItems() {
           setUsers(
@@ -48,7 +72,7 @@ export default memo(function InitTable() {
         }
         fetchItems();
       }
-    }, []);
+    }, []);*/
 
   //console.log(users);
 
