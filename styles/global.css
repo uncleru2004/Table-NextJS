@@ -22,7 +22,7 @@ input {
 }
 
 input:focus {
-  outline: none;
+  outline: solid 1px;
 }
 
 tr:hover {

@@ -1,18 +1,21 @@
-import { memo, useState } from "react";
+import { memo, useRef } from "react";
 
 export default memo(function Form({ transferValue }) {
-  const [value, setValue] = useState("");
-  //console.log(value);
+  console.log("render Form");
+  const inputValue = useRef("");
+
+  function filter() {
+    const el = inputValue.current;
+    transferValue(el.value);
+    console.log(el.value);
+  }
+
   return (
-    <>
-      <input
-        type="text"
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-        }}
-      />
-      <button onClick={transferValue(value)}>Поиск</button>
-    </>
+    <input
+      type="text"
+      placeholder="Введите значение..."
+      ref={inputValue}
+      onInput={filter}
+    />
   );
 });

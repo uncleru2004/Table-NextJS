@@ -76,12 +76,12 @@ export default memo(function InitTable() {
 
   //console.log(users);
 
-  /*useEffect(() => {
+  useEffect(() => {
     async function fetchItems() {
       setUsers(await fetcher(""));
     }
     fetchItems();
-  }, []);*/
+  }, []);
 
   return (
     <>
